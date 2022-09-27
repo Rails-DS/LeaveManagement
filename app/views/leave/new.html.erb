@@ -1,0 +1,35 @@
+<h1>New leave form</h1>
+
+
+
+<%= form_for @leave, {url: leave_new_path(user_id: params[:user_id]), method: :post} do |f| %>
+	
+	<div>
+		<%= f.label :leaveType %> 
+		<%= f.text_field :leaveType %>
+	</div>
+
+	<div>
+		<%= f.label :leaveReason %>
+		<%= f.text_field :leaveReason %>
+	</div>
+
+	<div>
+		<%= f.label :startDate %>
+		<%= f.date_field :startDate %>
+	</div>
+
+	<div>
+		<%= f.label :endDate %>
+		<%= f.date_field :endDate %>
+	</div>
+
+	<div>
+		<%= f.label :noofDays %>
+		<%= f.number_field :noofDays %>
+	</div>
+
+
+		<%= f.submit "Create leave", class: "btn btn-primary",  data: { turbo: false } %>
+	<% end %>		
+

@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  leaveType: MyString
+  leaveReason: MyText
+  startDate: 2022-09-27 13:01:02
+  endDate: 2022-09-27 13:01:02
+  noofDays: 1
+  hrStatus: 1
+  tlStatus: 1
+
+two:
+  leaveType: MyString
+  leaveReason: MyText
+  startDate: 2022-09-27 13:01:02
+  endDate: 2022-09-27 13:01:02
+  noofDays: 1
+  hrStatus: 1
+  tlStatus: 1

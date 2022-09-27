@@ -1,0 +1,12 @@
+
+<h1><%= @user.email %>  </h1>
+
+<% if @leavehist.count == 0 %>
+	<h2>No Leave histories</h2>
+	<% else %>
+		<%= @leavehist.inspect %>
+<%end%>
+<hr>
+
+<%= link_to 'logout', logout_path %>
+<%= link_to 'new_leave', leave_new_path(user_id: @user.id) %>
