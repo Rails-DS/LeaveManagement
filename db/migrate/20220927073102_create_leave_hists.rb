@@ -6,8 +6,8 @@ class CreateLeaveHists < ActiveRecord::Migration[7.0]
       t.datetime :startDate
       t.datetime :endDate
       t.integer :noofDays
-      t.integer :hrStatus
-      t.integer :tlStatus
+      t.integer :hrStatus, default: 0
+      t.integer :tlStatus, default: 0
 
       t.timestamps
     end

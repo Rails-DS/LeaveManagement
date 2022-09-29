@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_28_063843) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_29_053221) do
   create_table "leave_hists", force: :cascade do |t|
     t.string "leaveType"
     t.text "leaveReason"
     t.datetime "startDate"
     t.datetime "endDate"
     t.integer "noofDays"
-    t.integer "hrStatus"
-    t.integer "tlStatus"
+    t.integer "hrStatus", default: 0
+    t.integer "tlStatus", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
