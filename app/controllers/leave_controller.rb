@@ -9,12 +9,12 @@ class LeaveController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:user_id])
     @leave = LeaveHist.new(leave_params)
     @leave.user_id = params[:user_id]
 
     if @leave.save!
-      redirect_to users_path(@user.id)
+      redirect_to user_path(@user.id)
     else
       redirect_to leave_new_path
     end
