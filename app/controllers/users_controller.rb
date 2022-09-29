@@ -22,6 +22,13 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def leave_request
+		@leavehist = LeaveHist.where(tlStatus: 0, hrStatus: 0)
+		# To filter using teams 
+		# @users_histories = User.where(team_id:2)
+
+	end
+
 	def edit
   		@user = User.find(params[:id])
   	end
@@ -35,6 +42,8 @@ class UsersController < ApplicationController
   	end  
 
   	def show 
+  		@leave = Leave.all
+  		@available_leave = 24
   		@user = User.find(params[:id])
   		@leavehist = LeaveHist.where(user_id: @user.id)
   	end
@@ -46,6 +55,24 @@ class UsersController < ApplicationController
     	end
 
   	end
+
+
+  def toggle_status
+  	 @leavehist = LeaveHist.where(id: params[:id]).first
+	    if @leavehist.hr_status_pending?
+	      @leavehist.hr_status_approved!
+	    end
+    redirect_to leave_request_url, notice: 'Leave status has been updated.'
+  end
+
+
+    def status_rejected
+  	 @leavehist = LeaveHist.where(id: params[:id]).first
+	    if @leavehist.hr_status_pending?
+	      @leavehist.hr_status_rejected!
+	    end
+    redirect_to leave_request_url, notice: 'Leave status has been updated.'
+  end
 
   	private
 

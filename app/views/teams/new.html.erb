@@ -1,0 +1,26 @@
+<div class="container">
+<h1>Add New team</h1>
+
+
+<%= form_for @team  do |f| %>
+ 
+
+ <div >
+    <%= f.label :teamName%><br />
+    <%= f.text_field :teamName %>
+  </div>
+
+  <div >
+    <%= f.label :teamLeader %><br />
+    <%= f.text_field :teamLeader %>
+  </div>
+  
+  
+  <div >
+      <%= f.submit "Create Team" , { class: "btn btn-primary" }%>
+
+</div>
+<% end %>  
+  
+</div>
+

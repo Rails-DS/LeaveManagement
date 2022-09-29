@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  leaveName: MyString
+  leaveDesc: MyText
+
+two:
+  leaveName: MyString
+  leaveDesc: MyText

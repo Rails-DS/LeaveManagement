@@ -1,0 +1,23 @@
+<div class="container">
+
+		<table class="table table-borderless mt-5">
+		  <tr class="table-primary">
+		    <th>Leave Type</th>
+		    <th>Leave Reason</th>
+		    <th>Applied on</th>
+		    <th>No of Days</th>
+		    <th>Hr Status</th>
+		  </tr>
+		<% @leavehist.each do |hist| %>
+		  <tr>
+		    <td><%= hist.leaveType %></td>
+		    <td><%= hist.leaveReason %></td>
+		    <td><%= hist.created_at.strftime("%d-%m-%Y") %></td>
+		    <td><%= hist.noofDays %></td>
+		    <td><%= link_to "Approve" , toggle_status_user_path(hist.id) %></td>
+		    <td colspan="2"><%= link_to "Reject", status_rejected_user_path(hist.id) %></td>
+		    
+		  </tr>
+
+	<%end%>
+ </div>

@@ -1,6 +1,10 @@
 
 <h2>USER : <strong><%= @user.email %></strong>  </h2>
 
+<span> Alloted  Leave : <%= @available_leave %></span>   |  
+<span> Available Leave : <%= @available_leave - @leavehist.count %></span>  |  
+<span>Applied Leave : <%= @leavehist.count %>  </span>
+
 <div class="container">
 	<% if @leavehist.count == 0 %>
 		<h2>No Leave histories</h2>
@@ -9,20 +13,16 @@
 		  <tr class="table-primary">
 		    <th>Leave Type</th>
 		    <th>Leave Reason</th>
-		    <th>Start Date</th>
-		    <th>End Date</th>
+		    <th>Applied on</th>
 		    <th>No of Days</th>
-		    <th>Tl Status</th>
 		    <th>Hr Status</th>
 		  </tr>
 		<% @leavehist.each do |hist| %>
 		  <tr>
 		    <td><%= hist.leaveType %></td>
 		    <td><%= hist.leaveReason %></td>
-		    <td><%= hist.startDate.strftime("%Y-%m-%d") %></td>
-		    <td><%= hist.endDate.strftime("%Y-%m-%d")%></td>
+		    <td><%= hist.created_at.strftime("%d-%m-%Y") %></td>
 		    <td><%= hist.noofDays %></td>
-		    <td><%= hist.tlStatus %></td>
 		    <td><%= hist.hrStatus %></td>
 		  </tr>
 		<%end%>
