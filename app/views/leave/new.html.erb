@@ -1,35 +1,51 @@
+
+<div class="container ">
 <h1>New leave form</h1>
 
 
 
 <%= form_for @leave, {url: leave_new_path(user_id: params[:user_id]), method: :post} do |f| %>
 	
-	<div>
-		<%= f.label :leaveType %> 
-		<%= f.text_field :leaveType %>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :leaveType %> 
+				<%= f.text_field :leaveType, {class: "form-control"} %>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :leaveReason %>
+				<%= f.text_field :leaveReason, {class: "form-control"} %>
+			</div>
+		</div>
 	</div>
 
-	<div>
-		<%= f.label :leaveReason %>
-		<%= f.text_field :leaveReason %>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :startDate %>
+				<%= f.date_field :startDate, {class: "form-control"} %>
+			</div>
+		</div>
+		
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :endDate %>
+				<%= f.date_field :endDate, {class: "form-control"} %>
+			</div>
+		</div>
 	</div>
 
-	<div>
-		<%= f.label :startDate %>
-		<%= f.date_field :startDate %>
-	</div>
-
-	<div>
-		<%= f.label :endDate %>
-		<%= f.date_field :endDate %>
-	</div>
-
-	<div>
-		<%= f.label :noofDays %>
-		<%= f.number_field :noofDays %>
+	<div class="form-group">
+		<%= f.label :Noofdays %>
+		<%= f.number_field :noofDays, {class: "form-control"} %>
 	</div>
 
 
 		<%= f.submit "Create leave", class: "btn btn-primary",  data: { turbo: false } %>
 	<% end %>		
 
+</div>

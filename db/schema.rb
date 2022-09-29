@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_27_073847) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_28_063843) do
   create_table "leave_hists", force: :cascade do |t|
     t.string "leaveType"
     t.text "leaveReason"
@@ -25,12 +25,37 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_073847) do
     t.index ["user_id"], name: "index_leave_hists_on_user_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "roleName"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_roles_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "teamName"
+    t.string "teamLeader"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.datetime "joiningDate"
+    t.integer "team_id"
+    t.integer "role_id"
+    t.boolean "post"
+    t.index ["role_id"], name: "index_users_on_role_id"
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
   add_foreign_key "leave_hists", "users"
+  add_foreign_key "roles", "teams"
+  add_foreign_key "users", "roles"
+  add_foreign_key "users", "teams"
 end

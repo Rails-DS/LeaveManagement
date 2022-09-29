@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-   resources :leave
+  
+    
+  # Model leave
+  resources :leave
   get 'leave/index', to: 'leave#index'
   post 'leave/new', to: 'leave#create'
 
+  # Model User
   resources :users
   resources :sessions
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  root to: "users#new"
+  root to: "sessions#new"
 end

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-    # before_action :require_login
+  # before_action :is_admin?
   def new
   end
 
@@ -8,10 +8,13 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to users_path
+        if user.post == true
+          redirect_to users_path
+        else
+          redirect_to user_path(session[:user_id])
+        end
     else
-      flash[:alert] = "Email or password is invalid"
-      render 'new'
+      redirect_to new_session_path
     end
 
   end
@@ -22,17 +25,9 @@ class SessionsController < ApplicationController
     redirect_to new_session_path, notice: "Logged out!"
   end
 
-  # def logged_in?
-  #   !current_user.nil?
-  # end
-
 
   private
 
-    # def require_login
-    #   unless logged_in?
-    #   redirect_to new_session_path
-    # end
-
+ 
 
 end
