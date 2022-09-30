@@ -22,7 +22,6 @@
 		</div>
 	</div>
 
-
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
@@ -30,7 +29,6 @@
 				<%= f.date_field :startDate, {class: "form-control"} %>
 			</div>
 		</div>
-		
 		<div class="col-sm-6">
 			<div class="form-group">
 				<%= f.label :endDate %>
@@ -43,8 +41,6 @@
 		<%= f.label :Noofdays %>
 		<%= f.number_field :noofDays, {class: "form-control"} %>
 	</div>
-
-
 		<%= f.submit "Create leave", class: "btn btn-primary",  data: { turbo: false } %>
 	<% end %>		
 

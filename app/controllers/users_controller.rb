@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
-
 	def create
 		@user = User.new(user_params)
 		if @user.save!
@@ -29,8 +28,6 @@ class UsersController < ApplicationController
 
 	end
 
-
-
 	def user_profile
 		@user_profile = User.find(params[:id])
 	end
@@ -38,7 +35,6 @@ class UsersController < ApplicationController
 	def edit
   		@user = User.find(params[:id])
   	end
-
 
   	def update
   		@user = User.find(params[:id])
@@ -62,15 +58,13 @@ class UsersController < ApplicationController
 
   	end
 
-
-  def toggle_status
-  	 @leavehist = LeaveHist.where(id: params[:id]).first
-	    if @leavehist.hr_status_pending?
-	      @leavehist.hr_status_approved!
-	    end
-    redirect_to leave_request_url, notice: 'Leave status has been updated.'
-  end
-
+	 def toggle_status
+	  	@leavehist = LeaveHist.where(id: params[:id]).first
+		if @leavehist.hr_status_pending?
+		    @leavehist.hr_status_approved!
+		end
+	    redirect_to leave_request_url, notice: 'Leave status has been updated.'
+	end
 
     def status_rejected
   	 @leavehist = LeaveHist.where(id: params[:id]).first
