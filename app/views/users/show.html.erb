@@ -1,6 +1,7 @@
 
 <h2>USER : <strong><%= @user.email %></strong>  </h2>
 
+
 <span> Alloted  Leave : <%= @available_leave %></span>   |  
 <span> Available Leave : <%= @available_leave - @leavehist.count %></span>  |  
 <span>Applied Leave : <%= @leavehist.count %>  </span>
@@ -9,7 +10,7 @@
 	<% if @leavehist.count == 0 %>
 		<h2>No Leave histories</h2>
 	<% else %>
-		<table class="table table-borderless mt-5">
+		<table class="table table-borderless">
 		  <tr class="table-primary">
 		    <th>Leave Type</th>
 		    <th>Leave Reason</th>
@@ -30,10 +31,8 @@
  </div>
 
 <%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
-<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary m-2"} %>
-<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"btn btn-primary m-2"} %>
-<% if @user.post == true %>
-	<%= link_to 'Back', users_path %>
-<%end%>
+<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary"} %>
+<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"btn btn-primary"} %>
+
 
 

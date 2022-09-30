@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_29_090610) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_29_064804) do
   create_table "leave_hists", force: :cascade do |t|
     t.string "leaveType"
     t.text "leaveReason"
@@ -30,7 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_29_090610) do
     t.text "leaveDesc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "availableLeave"
   end
 
   create_table "roles", force: :cascade do |t|
