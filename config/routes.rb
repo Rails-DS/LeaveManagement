@@ -18,8 +18,10 @@ Rails.application.routes.draw do
     member do
       get :toggle_status
       get :status_rejected
+      get :user_profile
     end
   end
+
 
   root to: "sessions#new"
 end
