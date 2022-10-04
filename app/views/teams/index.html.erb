@@ -11,8 +11,8 @@
 		  <tr>
 		    <td><%= team.teamName %></td>
 		    <td><%= team.teamLeader %></td>
-		    <td><%= link_to 'Edit', edit_team_path(team.id), { class: "btn btn-primary" }%></td>
-		    <td><%= button_to 'Delete', team_path(team.id), method: :delete%></td>
+		    <td><%= button_to 'Edit', edit_team_path(team.id), { class: "btn btn-light" , method: :get }%></td>
+		    <!-- <td><%#= button_to 'Delete', team_path(team.id), method: :delete%></td> -->
 		  </tr>
 		<%end%>
  </div>

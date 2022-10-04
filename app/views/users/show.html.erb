@@ -4,31 +4,16 @@
 
 <span> Alloted  Leave : <%= @available_leave %></span>   |  
 <span> Available Leave : <%= @available_leave - @leavehist.count %></span>  |  
-<span>Applied Leave : <%= @leavehist.count %>  </span>
+<span>Applied Leave : <%= @leavehist.count %>  </span> |
+<span>Approved Leaves : <%= @total_approved_leave %>  </span> | 
+<span>Rejected Leaves : <%= @total_rejected_leave %>  </span> | 
+<span>Pending Leaves : <%= @total_pending_leave %>  </span> | 
 
-<div class="container">
-	<% if @leavehist.count == 0 %>
-		<h2>No Leave histories</h2>
-	<% else %>
-		<table class="table table-borderless">
-		  <tr class="table-primary">
-		    <th>Leave Type</th>
-		    <th>Leave Reason</th>
-		    <th>Applied on</th>
-		    <th>No of Days</th>
-		    <th>Hr Status</th>
-		  </tr>
-		<% @leavehist.each do |hist| %>
-		  <tr>
-		    <td><%= hist.leaveType %></td>
-		    <td><%= hist.leaveReason %></td>
-		    <td><%= hist.created_at.strftime("%d-%m-%Y") %></td>
-		    <td><%= hist.noofDays %></td>
-		    <td><%= hist.hrStatus %></td>
-		  </tr>
-		<%end%>
-	<%end%>
- </div>
+
+<%#= link_to "Button", leave_hist_user_path , :remote => true %>
+
+<%= render "leave_hist" %>
+
 
 <%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
 <%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary"} %>

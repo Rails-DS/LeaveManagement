@@ -17,10 +17,15 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :toggle_status
+      get :toggle_status_tl
       get :status_rejected
+      get :status_rejected_tl
       get :user_profile
+      get :leave_hist
     end
   end
+
+ get 'tl_leave_request', to: "users#tl_leave_request" 
 
 
   root to: "sessions#new"

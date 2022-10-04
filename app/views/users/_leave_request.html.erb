@@ -1,5 +1,7 @@
 <div class="container">
-
+<% if @leavehist.count == 0 %>
+		<h2>No Leave Requests</h2>
+	<% else %>
 		<table class="table table-borderless mt-5">
 		  <tr class="table-primary">
 		    <th>Name</th>
@@ -21,6 +23,8 @@
 		    
 		  </tr>
 
-	<%end%>
+		<%end%>
+<%end%>
  </div>
+
  <%= link_to 'back', users_path, {class:"btn btn-primary"} %>

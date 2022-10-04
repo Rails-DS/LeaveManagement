@@ -3,54 +3,73 @@
 <h1>Add New User</h1>
 
 
+
 <%= form_for @user do |f| %>
- 
+ <div class="from-row">
+    <div class="form-group col-md-5">
+      <%= f.label :name %>
+      <%= f.text_field :name ,{class: "form-control"}%>
+    </div>
 
- <div >
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div >
-    <%= f.label :joiningDate %><br />
-    <%= f.date_field :joiningDate %>
+    <div  class="form-group col-md-5">
+       <%= f.label :email %>
+      <%= f.text_field :email,{class: "form-control"} %>
+    </div>
   </div>
   
-  
-  <div >
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="form-row">
+    <div class="form-group col-md-5">
+      <%= f.label :password %>
+      <%= f.password_field :password ,{class: "form-control"}%>
+    </div>
+      <div class="form-group col-md-5">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation ,{class: "form-control"}%>
+    </div>
   </div>
-  
-  <div >
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  
-  <div >
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  
-  <div >
+<div class="from-row">
+  <div class="form-group col-md-6">
     <%= f.label :team %>
-    <%= f.collection_select(:team_id, Team.all, :id, :teamName, { :prompt => 'Team'}) %>
+    <%= f.collection_select(:team_id, Team.all, :id, :teamName, { :prompt => 'Team', class: "form-control"}) %>
   </div>
-  
-  <div >
+</div>
+  <div class="form-group col-md-5">
       <%= f.label :role %>
-      <%= f.collection_select(:role_id, Role.all, :id, :roleName, { :prompt => 'Role'}) %>
+      <%= f.collection_select(:role_id, Role.all, :id, :roleName, { :prompt => 'Role', class: "form-control"}) %>
   </div>
-  
-  <div >
+</div>
+    <div class="form-group col-md-12 shibu">
+     <%= f.label :joiningDate %>
+    <%= f.date_field :joiningDate %>
+    </div>
+<div class="from-row user-row">
+  <div class="form-group col-md-5">
       <%= f.submit "Create Employee" %>
-
+  </div>
 </div>
-<% end %>  
-  
-</div>
+<% end %>
 
+
+<div class="form-group col-md-5">
 <%= link_to "Back to home", users_path, {class: "btn btn-primary"} %>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -121,22 +140,22 @@
 <!-- <h1>Sign Up</h1>
 
 <%#= form_for @user do |f| %>
- 
+
   <div >
-    <%#= f.label :email %><br />
+    <%#= f.label :email %>
     <%#= f.text_field :email %>
   </div>
-  
+
   <div >
-    <%#= f.label :password %><br />
+    <%#= f.label :password %>
     <%#= f.password_field :password %>
   </div>
-  
+
   <div >
-    <%#= f.label :password_confirmation %><br />
+    <%#= f.label :password_confirmation %>
     <%#= f.password_field :password_confirmation %>
   </div>
-  
+
   <div ><%#= f.submit "Sign Up" %>
 
   <%#= link_to "login", new_session_path %>

@@ -1,0 +1,27 @@
+<div class="container">
+	<% if @leavehist.count == 0 %>
+		<h2>No Leave histories</h2>
+	<% else %>
+		<table class="table table-borderless">
+		  <tr class="table-primary">
+		    <th>Leave Type</th>
+		    <th>Leave Reason</th>
+		    <th>Applied on</th>
+		    <th>No of Days</th>
+		    <th>TL Status</th>
+		    <th>Hr Status</th>
+		  </tr>
+		<% @leavehist.each do |hist| %>
+		  <tr>
+		    <td><%= hist.leaveType %></td>
+		    <td><%= hist.leaveReason %></td>
+		    <td><%= hist.created_at.strftime("%d-%m-%Y") %></td>
+		    <td><%= hist.noofDays %></td>
+		    <td><%= hist.tlStatus %></td>
+		    <td><%= hist.hrStatus %></td>
+
+		  </tr>
+		<%end%>
+	<%end%>
+ </div>
+</table>

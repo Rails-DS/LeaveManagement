@@ -5,7 +5,7 @@
 
 
 
-teams = ["Development", "Support", "Marketing"]
+teams = ["Development", "Support", "Marketing", "Design"]
 teamleader = ["xxx", "yyy", "zzz"]
 
 teams.length.times do |x|
@@ -18,7 +18,7 @@ end
 puts "Teams Created.................!!!!!!!!!!"
 
 
-roles = {"Jr.Developer" => 1,"Sr.Developer" => 1,"Jr.Tech-support" => 2, "Sr.Tech-support" => 2, "Business-analyst" => 3 }
+roles = {"Jr.Developer" => 1,"Sr.Developer" => 1,"Jr.Tech-support" => 2, "Sr.Tech-support" => 2, "Business-analyst" => 3 , "UI/UX Designer" => 4}
 roles.length.times do |y|
 	Role.create!(
 		roleName: roles.keys[y],
@@ -27,3 +27,19 @@ roles.length.times do |y|
 end
 
 puts "Roles Created.........!!!!!!!!!"
+
+# admin@admin.com admin
+#shibu@gmail.com 1234
+
+admin_user = User.create!(
+	name: "admin",
+	email: "admin@admin.com",
+	password: "admin",
+	password_confirmation: "admin",
+	joiningDate: "01-06-2022",
+	team_id: nil,
+	role_id: nil, 
+	post: true
+	)
+
+puts "#{admin_user} created.............!!!!!!!!!" 

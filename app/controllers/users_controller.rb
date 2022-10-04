@@ -23,9 +23,14 @@ class UsersController < ApplicationController
 
 	def leave_request
 		@leavehist = LeaveHist.where(tlStatus: 0, hrStatus: 0)
-		# To filter using teams 
-		# @users_histories = User.where(team_id:2)
 
+	end
+
+	def tl_leave_request
+		@user = User.find(session[:user_id])
+		#show all the pending request for all user where tl status is in pending
+		@leavehist = LeaveHist.where(tlStatus: 0)
+		@user_all = User.where(team_id: @user.team_id)
 	end
 
 	def user_profile
@@ -48,7 +53,17 @@ class UsersController < ApplicationController
   		@available_leave = 24
   		@user = User.find(params[:id])
   		@leavehist = LeaveHist.where(user_id: @user.id)
+  		@total_approved_leave = @leavehist.hr_status_approved.count 
+  		@total_rejected_leave = @leavehist.hr_status_rejected.count 
+  		@total_pending_leave = @leavehist.hr_status_pending.count 
+  		
   	end
+
+  	# def leave_hist
+  	# 	respond_to do |format|               
+   #  		format.js { render 'leave_hist.js', content_type: 'text/javascript'}
+ 		# end 
+  	# end
 
 	def destroy
   		@user = User.find(params[:id])
@@ -58,21 +73,40 @@ class UsersController < ApplicationController
 
   	end
 
-	 def toggle_status
+	 def toggle_status_tl
 	  	@leavehist = LeaveHist.where(id: params[:id]).first
-		if @leavehist.hr_status_pending?
-		    @leavehist.hr_status_approved!
+		if @leavehist.tl_status_pending?
+		    @leavehist.tl_status_approved!
 		end
-	    redirect_to leave_request_url, notice: 'Leave status has been updated.'
+	    redirect_to tl_leave_request_url
 	end
 
-    def status_rejected
+    def status_rejected_tl
   	 @leavehist = LeaveHist.where(id: params[:id]).first
-	    if @leavehist.hr_status_pending?
-	      @leavehist.hr_status_rejected!
+	    if @leavehist.tl_status_pending?
+	      @leavehist.tl_status_rejected!
 	    end
-    redirect_to leave_request_url, notice: 'Leave status has been updated.'
-  end
+    	redirect_to tl_leave_request_url
+ 	end
+	
+
+
+
+	def toggle_status
+		@leavehist = LeaveHist.where(id: params[:id]).first
+		if @leavehist.hr_status_pending?
+			@leavehist.hr_status_approved!
+		end
+		    redirect_to leave_request_url, notice: 'Leave status has been updated.'
+	end
+
+	def status_rejected
+	  @leavehist = LeaveHist.where(id: params[:id]).first
+		if @leavehist.hr_status_pending?
+		   @leavehist.hr_status_rejected!
+		end
+	    	redirect_to leave_request_url, notice: 'Leave status has been updated.'
+	end
 
   	private
 
