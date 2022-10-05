@@ -13,7 +13,7 @@
 		<th></th>
 	</tr>
 <% @users.each do |user| %>
-	<% if user.post == nil %>
+	<% if user.is_admin == false %>
 	<tr>
 		<td><%= link_to user.name,user_path(user.id) %></td>
 		<td><%=user.email%></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_29_064804) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_060838) do
   create_table "leave_hists", force: :cascade do |t|
     t.string "leaveType"
     t.text "leaveReason"
@@ -56,7 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_29_064804) do
     t.datetime "joiningDate"
     t.integer "team_id"
     t.integer "role_id"
-    t.boolean "post"
+    t.boolean "is_admin", default: false
+    t.boolean "is_tl", default: false
     t.index ["role_id"], name: "index_users_on_role_id"
     t.index ["team_id"], name: "index_users_on_team_id"
   end

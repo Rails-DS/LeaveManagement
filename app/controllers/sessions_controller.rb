@@ -8,13 +8,9 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        if user.post == true 
+        if user.is_admin == true 
           redirect_to users_path
-        elsif user.post == false && user.team_id = 1
-          redirect_to tl_leave_request_path
-        elsif user.post == false && user.team_id = 2
-          redirect_to tl_leave_request_path
-        elsif user.post == false && user.team_id = 3
+        elsif user.is_admin == false && user.is_tl == true
           redirect_to tl_leave_request_path
         else
           redirect_to user_path(session[:user_id])

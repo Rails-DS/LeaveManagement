@@ -41,7 +41,7 @@ class AdminController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :joiningDate, :post, :team_id, :role_id )
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :joiningDate, :is_admin, :team_id, :role_id )
   end
 
 

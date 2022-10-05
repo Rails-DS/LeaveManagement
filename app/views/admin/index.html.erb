@@ -9,7 +9,7 @@
 		<th></th>
 	</tr>
 <% @users.each do |user| %>
-	<% unless user.post %>
+	<% unless user.is_admin %>
 	<tr>
 		<th><%=user.name%></th>
 		<th><%=user.email%></th>
