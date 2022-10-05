@@ -22,9 +22,7 @@
 		    <td><%= hist.tlStatus%></td>
 		    <td><%= link_to "Approve" , toggle_status_user_path(hist.id),{class:"btn btn-success"} %>
 		    <%= link_to "Reject", status_rejected_user_path(hist.id) ,{class:"btn btn-danger"} %></td>
-		    
-		  </tr>
-
+ 		  </tr>
 		<%end%>
 <%end%>
  </div>

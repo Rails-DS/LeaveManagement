@@ -11,6 +11,7 @@
 		<th>Hr Status</th>
 
 		<th>Actions</th>
+
 <%@user_all.each do |u| %>
 	<% u.leaveHists.each do |u_leavehist| %>
 		</tr>
@@ -32,3 +33,4 @@
 </table>
 </div>
 
+<%= link_to 'Back',  tl_index_path , {class:"btn btn-primary"} %>
