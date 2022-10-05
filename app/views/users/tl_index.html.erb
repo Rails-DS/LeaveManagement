@@ -1,0 +1,31 @@
+<h4>USER : <strong> <%= @user.email %> </strong></h4>
+<h3><%= @team_name %> Team</h3>
+
+<div class="container my-auto">
+<table class="table table-borderless thead-dark">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Joined Date</th>
+		<th>Team</th>
+		<th>Role</th>
+	</tr>
+<% @user_all.each do |user| %>
+	<% if user.is_tl == false && user.is_admin == false %>
+	<tr>
+		<td><%=user.name%></td>
+		<td><%=user.email%></td>
+		<td><%=user.joiningDate.strftime("%Y-%m-%d")%></td>
+		<td><%=user.team.teamName %></td>
+		<td><%=user.role.roleName %></td>
+	</tr>
+	<%end%>
+<%end%>
+
+</table>
+
+</div>
+
+<%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
+<%= link_to 'My Leave', user_path(session[:user_id]), {class:"btn btn-primary"} %>
+<%= link_to "Approve/Reject Leave", tl_leave_request_path, {class:"btn btn-primary"} %>

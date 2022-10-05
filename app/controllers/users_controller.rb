@@ -26,6 +26,23 @@ class UsersController < ApplicationController
 
 	end
 
+	def tl_index
+		@user = User.find(session[:user_id])
+
+		@user_all = User.where(team_id: @user.team_id)
+		
+		@team_name = ""
+		if @user.team_id == 1
+			@team_name = "Development"
+		elsif @user.team_id == 2
+			@team_name = "Support"
+		elsif @user.team_id = 3
+			@team_name = "Marketing"
+		else
+			@team_name = "Design"		
+		end	
+	end
+
 	def tl_leave_request
 		@user = User.find(session[:user_id])
 		#show all the pending request for all user where tl status is in pending
@@ -73,6 +90,7 @@ class UsersController < ApplicationController
 
   	end
 
+# Tl status updation 
 	 def toggle_status_tl
 	  	@leavehist = LeaveHist.where(id: params[:id]).first
 		if @leavehist.tl_status_pending?
@@ -88,10 +106,8 @@ class UsersController < ApplicationController
 	    end
     	redirect_to tl_leave_request_url
  	end
-	
-
-
-
+ 	
+# Hr status updation 
 	def toggle_status
 		@leavehist = LeaveHist.where(id: params[:id]).first
 		if @leavehist.hr_status_pending?

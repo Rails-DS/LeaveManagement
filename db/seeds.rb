@@ -18,7 +18,7 @@ end
 puts "Teams Created.................!!!!!!!!!!"
 
 
-roles = {"Jr.Developer" => 1,"Sr.Developer" => 1, "Team-lead" => 1,"Jr.Tech-support" => 2, "Sr.Tech-support" => 2, "Team-lead" => 2, "Business-analyst" => 3 , "UI/UX Designer" => 4, "Team-lead" => 4}
+roles = {"Jr.Developer" => 1,"Sr.Developer" => 1,"Jr.Tech-support" => 2, "Sr.Tech-support" => 2, "Business-analyst" => 3 , "UI/UX Designer" => 4}
 roles.length.times do |y|
 	Role.create!(
 		roleName: roles.keys[y],

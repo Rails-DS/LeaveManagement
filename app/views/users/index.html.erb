@@ -16,7 +16,7 @@
 	<% if user.is_admin == false %>
 	<tr>
 		<td><%= link_to user.name,user_path(user.id) %></td>
-		<td><%=user.email%></td>
+		<td><%=user.email %></td>
 		<td><%=user.joiningDate.strftime("%Y-%m-%d")%></td>
 		<td><%=user.team.teamName %></td>
 		<td><%=user.role.roleName %></td>

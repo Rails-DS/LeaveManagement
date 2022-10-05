@@ -9,6 +9,7 @@ class LeaveController < ApplicationController
   end
 
   def create
+    @user_session = User.find(session[:user_id])
     @user = User.find(params[:user_id])
     @leave = LeaveHist.new(leave_params)
     @leave.user_id = params[:user_id]

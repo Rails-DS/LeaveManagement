@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
  get 'tl_leave_request', to: "users#tl_leave_request" 
+ get 'tl_index', to: "users#tl_index" 
 
 
   root to: "sessions#new"

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         if user.is_admin == true 
           redirect_to users_path
         elsif user.is_admin == false && user.is_tl == true
-          redirect_to tl_leave_request_path
+          redirect_to tl_index_path
         else
           redirect_to user_path(session[:user_id])
         end

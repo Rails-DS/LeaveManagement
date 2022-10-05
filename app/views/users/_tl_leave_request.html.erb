@@ -3,22 +3,24 @@
 <div class="container">
 <table class="table table-borderless mt-5">
 	<tr class="table-primary">
+		<th>Name</th>
 		<th>Leave Types</th>
 		<th>Leave Reason</th>
 		<th>Start Date</th>
 		<th>End Date</th>
-		<th>Team ID</th>
+		<th>Hr Status</th>
 
 		<th>Actions</th>
 <%@user_all.each do |u| %>
 	<% u.leaveHists.each do |u_leavehist| %>
 		</tr>
 		<% if u_leavehist.tlStatus == "pending" %>
+			<td><%= u_leavehist.user.name%></td>
 			<td><%= u_leavehist.leaveType%></td>
 			<td><%= u_leavehist.leaveReason%></td>
 			<td><%= u_leavehist.startDate.strftime("%d-%m-%Y")%></td>
 			<td><%= u_leavehist.endDate.strftime("%d-%m-%Y")%></td>
-			<td><%= u_leavehist.user.team_id%></td>
+			<td><%= u_leavehist.hrStatus%></td>
 			<td>
 				<%= link_to "Approve" , toggle_status_tl_user_path(u_leavehist.id),{class:"btn btn-success"} %>
 				<%= link_to "Reject", status_rejected_tl_user_path(u_leavehist.id) ,{class:"btn btn-danger"} %>
