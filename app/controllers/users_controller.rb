@@ -28,9 +28,7 @@ class UsersController < ApplicationController
 
 	def tl_index
 		@user = User.find(session[:user_id])
-
 		@user_all = User.where(team_id: @user.team_id)
-		
 		@team_name = ""
 		if @user.team_id == 1
 			@team_name = "Development"
@@ -127,7 +125,7 @@ class UsersController < ApplicationController
   	private
 
   	def user_params
-    	params.require(:user).permit(:name, :email, :password, :password_confirmation, :joiningDate, :is_admin, :team_id, :role_id )
+    	params.require(:user).permit(:name, :email, :password, :password_confirmation, :joiningDate, :is_admin, :team_id, :role_id, :is_tl)
   	end
 
 
