@@ -10,7 +10,7 @@
 		<th>Team ID</th>
 
 		<th>Actions</th>
-<%@user_all.each do |u| %>
+<% @user_all.each do |u| %>
 	<% u.leaveHists.each do |u_leavehist| %>
 		</tr>
 		<% if u_leavehist.tlStatus == "pending" %>
@@ -30,3 +30,5 @@
 </table>
 </div>
 
+
+<% @user_all.inspect %>
