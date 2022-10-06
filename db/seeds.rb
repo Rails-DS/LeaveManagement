@@ -6,7 +6,7 @@
 
 
 teams = ["Development", "Support", "Marketing", "Design"]
-teamleader = ["xxx", "yyy", "zzz"]
+teamleader = ["xxx", "yyy", "zzz", "AAA"]
 
 teams.length.times do |x|
 		Team.create!(
@@ -31,6 +31,7 @@ puts "Roles Created.........!!!!!!!!!"
 # admin@admin.com admin
 #shibu@gmail.com 1234
 
+<<<<<<< HEAD
 admin_user = User.create!(
 	name: "admin",
 	email: "admin@admin.com",
@@ -43,3 +44,6 @@ admin_user = User.create!(
 	)
 
 puts "#{admin_user} created.............!!!!!!!!!" 
+=======
+# User.create!(email: "admin@admin.com", password: "1234", password_confirmation: "1234", name: "admin", joiningDate: "12-6-1999", team_id: 1, role_id: 1, post: true)
+>>>>>>> tl_page

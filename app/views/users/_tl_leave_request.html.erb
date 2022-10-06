@@ -11,8 +11,12 @@
 		<th>Hr Status</th>
 
 		<th>Actions</th>
+<<<<<<< HEAD
 
 <%@user_all.each do |u| %>
+=======
+<% @user_all.each do |u| %>
+>>>>>>> tl_page
 	<% u.leaveHists.each do |u_leavehist| %>
 		</tr>
 		<% if u_leavehist.tlStatus == "pending" %>
@@ -33,4 +37,9 @@
 </table>
 </div>
 
+<<<<<<< HEAD
 <%= link_to 'Back',  tl_index_path , {class:"btn btn-primary"} %>
+=======
+
+<% @user_all.inspect %>
+>>>>>>> tl_page
