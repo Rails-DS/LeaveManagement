@@ -9,14 +9,10 @@
 		<th>Start Date</th>
 		<th>End Date</th>
 		<th>Hr Status</th>
-
 		<th>Actions</th>
 
 
 <%@user_all.each do |u| %>
-
-<% @user_all.each do |u| %>
-
 	<% u.leaveHists.each do |u_leavehist| %>
 		</tr>
 		<% if u_leavehist.tlStatus == "pending" %>
@@ -34,6 +30,7 @@
 		<%end%>
 	<%end%>
 <%end%>
+
 </table>
 </div>
 
@@ -41,5 +38,4 @@
 <%= link_to 'Back',  tl_index_path , {class:"btn btn-primary"} %>
 
 
-<% @user_all.inspect %>
 
