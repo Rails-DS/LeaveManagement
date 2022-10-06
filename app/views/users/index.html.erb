@@ -2,15 +2,15 @@
 <h4>USER : <strong> <%= @user.email %> </strong></h4>
 
 
-<div class="container my-auto">
-<table class="table table-borderless thead-dark">
+<div class="container my-auto ">
+<table class="table table-borderless table-hover">
 	<tr>
 		<th>Name</th>
 		<th>Email</th>
 		<th>Joined Date</th>
 		<th>Team</th>
 		<th>Role</th>
-		<th></th>
+
 	</tr>
 <% @users.each do |user| %>
 	<% if user.is_admin == false %>
@@ -20,7 +20,7 @@
 		<td><%=user.joiningDate.strftime("%Y-%m-%d")%></td>
 		<td><%=user.team.teamName %></td>
 		<td><%=user.role.roleName %></td>
-		<td><%= link_to "Edit", edit_user_path(user.id)%></td>
+		<td><%= link_to "Edit", edit_user_path(user.id),{class:"Edit"}%></td>
 		<td><%= button_to "Delete", user_path(user.id), method: :delete%></td>
 	</tr>
 	<%end%>

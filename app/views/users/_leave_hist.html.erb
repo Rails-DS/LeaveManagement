@@ -1,14 +1,17 @@
-<div class="container">
+<div class="container ", style = "margin-top: 60px;">
 	<% if @leavehist.count == 0 %>
 		<h2>No Leave histories</h2>
 	<% else %>
 		<table class="table table-borderless">
-		  <tr class="table-primary">
+		  <tr class="table-dark">
 		    <th>Leave Type</th>
 		    <th>Leave Reason</th>
 		    <th>Applied on</th>
 		    <th>No of Days</th>
-		    <th>TL Status</th>
+		    <!-- If the user is admin -->
+		    <% if !@user.is_tl? %> 
+		   		<th>TL Status</th>
+		    <%end %>
 		    <th>Hr Status</th>
 		  </tr>
 		<% @leavehist.each do |hist| %>
@@ -17,9 +20,25 @@
 		    <td><%= hist.leaveReason %></td>
 		    <td><%= hist.created_at.strftime("%d-%m-%Y") %></td>
 		    <td><%= hist.noofDays %></td>
-		    <td><%= hist.tlStatus %></td>
-		    <td><%= hist.hrStatus %></td>
-
+		    <% if !@user.is_tl? %>
+		    	<td> <i style= "background-color: 
+		    			<%=if hist.tlStatus == "rejected" 	
+		    						"var(--red-3)"	
+		    				  elsif hist.tlStatus == "approved"  
+		    						"var(--green-3)"
+				   		      end %>"> 
+		    			<%= hist.tlStatus %>
+		    		 </i>
+		    	</td>
+		    <% end %>
+		    <td>
+		    	<i style= "background-color: 
+		    		<%=if hist.hrStatus == "rejected" 	
+		    				"var(--red-3)"	
+		    			elsif hist.hrStatus == "approved"  
+		    				"var(--green-3)"
+		    			end %>"><%= hist.hrStatus %></i>
+			</td>
 		  </tr>
 		<%end%>
 	<%end%>

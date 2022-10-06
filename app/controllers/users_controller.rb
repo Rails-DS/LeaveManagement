@@ -24,6 +24,8 @@ class UsersController < ApplicationController
 	def leave_request
 		@leavehist = LeaveHist.where(hrStatus: 0)
 
+
+
 	end
 
 	def tl_index
@@ -89,8 +91,6 @@ class UsersController < ApplicationController
   	end
 
 
-# Tl status updation 
-
 # TL Status approval
 
 	 def toggle_status_tl
@@ -108,9 +108,6 @@ class UsersController < ApplicationController
 	    end
     	redirect_to tl_leave_request_url
  	end
-
- 	
-# Hr status updation 
 
 	
 # HR Status approval

@@ -15,7 +15,7 @@
 <%@user_all.each do |u| %>
 	<% u.leaveHists.each do |u_leavehist| %>
 		</tr>
-		<% if u_leavehist.tlStatus == "pending" %>
+		<% if u_leavehist.tlStatus == "pending" && u_leavehist.user.is_tl == false %>
 			<td><%= u_leavehist.user.name%></td>
 			<td><%= u_leavehist.leaveType%></td>
 			<td><%= u_leavehist.leaveReason%></td>

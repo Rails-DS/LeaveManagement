@@ -6,7 +6,7 @@
 		<th>Joined Date</th>
 		<th>Team</th>
 		<th>Role</th>
-		<th></th>
+		<th>Edit/Delete</th>
 	</tr>
 <% @users.each do |user| %>
 	<% unless user.is_admin %>
@@ -16,8 +16,8 @@
 		<th><%=user.joiningDate.strftime("%Y-%m-%d")%></th>
 		<td><%=user.team.teamLeader %></td>
 		<td><%=user.role.roleName %></td>
-		<td><%= link_to "Edit", edit_admin_path(user.id)%></td>
-		<td><%= button_to "Delete", admin_path(user.id), method: :delete %></td>
+		<td><%= link_to "Edit", edit_admin_path(user.id), {class:"Edit"}%></td>
+		<td><%= button_to "Delete", admin_path(user.id), method: :delete, {class:"button"} %></td>
 		<td></td>
 	</tr>
 	<%end%>
