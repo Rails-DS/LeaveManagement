@@ -73,12 +73,9 @@ class UsersController < ApplicationController
   		@total_approved_leave = @leavehist.hr_status_approved
   		@total_rejected_leave = @leavehist.hr_status_rejected 
   		@total_pending_leave = @leavehist.hr_status_pending
-  		
-
-
-  	# respond_to do |format|               
-   #   		format.js
- 		#  end 
+ 		respond_to do |format|               
+     		format.js
+ 		end 
   	end
 
 	def destroy
