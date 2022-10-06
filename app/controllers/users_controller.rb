@@ -24,6 +24,8 @@ class UsersController < ApplicationController
 	def leave_request
 		@leavehist = LeaveHist.where(hrStatus: 0)
 
+
+
 	end
 
 	def tl_index
@@ -68,17 +70,16 @@ class UsersController < ApplicationController
   		@available_leave = 24
   		@user = User.find(params[:id])
   		@leavehist = LeaveHist.where(user_id: @user.id)
-  		@total_approved_leave = @leavehist.hr_status_approved.count 
-  		@total_rejected_leave = @leavehist.hr_status_rejected.count 
-  		@total_pending_leave = @leavehist.hr_status_pending.count 
+  		@total_approved_leave = @leavehist.hr_status_approved
+  		@total_rejected_leave = @leavehist.hr_status_rejected 
+  		@total_pending_leave = @leavehist.hr_status_pending
   		
-  	end
 
-  	# def leave_hist
-  	# 	respond_to do |format|               
-   #  		format.js { render 'leave_hist.js', content_type: 'text/javascript'}
- 		# end 
-  	# end
+
+  	# respond_to do |format|               
+   #   		format.js
+ 		#  end 
+  	end
 
 	def destroy
   		@user = User.find(params[:id])
@@ -88,8 +89,6 @@ class UsersController < ApplicationController
 
   	end
 
-
-# Tl status updation 
 
 # TL Status approval
 
@@ -108,9 +107,6 @@ class UsersController < ApplicationController
 	    end
     	redirect_to tl_leave_request_url
  	end
-
- 	
-# Hr status updation 
 
 	
 # HR Status approval

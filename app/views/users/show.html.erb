@@ -2,23 +2,22 @@
 <h2>USER : <strong><%= @user.email %></strong>  </h2>
 
 
-<span> Alloted  Leave : <%= @available_leave %></span>   |  
-<span> Available Leave : <%= @available_leave - @leavehist.count %></span>  |  
+<span>Alloted  Leave : <%= @available_leave %></span>   |  
+<span>Available Leave : <%= @available_leave - @leavehist.count %></span>  |  
 <span>Applied Leave : <%= @leavehist.count %>  </span> |
-<span>Approved Leaves : <%= @total_approved_leave %>  </span> | 
-<span>Rejected Leaves : <%= @total_rejected_leave %>  </span> | 
-<span>Pending Leaves : <%= @total_pending_leave %>  </span> | 
+<span>Approved Leaves : <%= @total_approved_leave.count %>  </span> | 
+<span>Rejected Leaves : <%= @total_rejected_leave.count %>  </span> | 
+<span>Pending Leaves : <%= @total_pending_leave.count %>  </span> | 
 
 
-<%#= link_to "Button", leave_hist_user_path , :remote => true %>
+
+<%= link_to "Button", leave_hist_user_path , :remote => true %>
 
 <%= render "leave_hist" %>
-
 
 <%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
 <%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary"} %>
 <%= link_to 'Profile', user_profile_user_path( @user.id), {class:"btn btn-primary"} %>
-
 <% if @user.is_tl %>
 	<%= link_to 'Back',  tl_index_path , {class:"btn btn-primary"} %>
 <%end%>
