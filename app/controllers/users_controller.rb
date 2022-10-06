@@ -88,11 +88,11 @@ class UsersController < ApplicationController
 
   	end
 
-<<<<<<< HEAD
+
 # Tl status updation 
-=======
+
 # TL Status approval
->>>>>>> tl_page
+
 	 def toggle_status_tl
 	  	@leavehist = LeaveHist.where(id: params[:id]).first
 		if @leavehist.tl_status_pending?
@@ -108,14 +108,14 @@ class UsersController < ApplicationController
 	    end
     	redirect_to tl_leave_request_url
  	end
-<<<<<<< HEAD
+
  	
 # Hr status updation 
-=======
+
 	
 # HR Status approval
 
->>>>>>> tl_page
+
 	def toggle_status
 		@leavehist = LeaveHist.where(id: params[:id]).first
 		if @leavehist.hr_status_pending?
