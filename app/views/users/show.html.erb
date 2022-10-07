@@ -5,21 +5,23 @@
 <span>Alloted  Leave : <%= @available_leave %></span>   |  
 <span>Available Leave : <%= @available_leave - @leavehist.count %></span>  |  
 <span>Applied Leave : <%= @leavehist.count %>  </span> |
-<span>Approved Leaves : <%= @total_approved_leave.count %>  </span> | 
-<span>Rejected Leaves : <%= @total_rejected_leave.count %>  </span> | 
-<span>Pending Leaves : <%= @total_pending_leave.count %>  </span> | 
+<span><%= link_to "Approved Leaves ", user_path(leave_type: :approved) %></span> | 
+<span><%= link_to "Rejected Leaves ", user_path(leave_type: :rejected) %></span> | 
+<span><%= link_to "Pending Leaves ", user_path(leave_type: :pending) %></span> | 
+<span><%= link_to "All Leaves ", user_path(leave_type: :all) %></span> | 
 
+<div id="leave_hist">
+	<%= render "leave_hist" %>
+</div>
 
-
-<%= link_to "Button", user_path(@user.id) , {:remote => true, :id => "test"} %>
-
-<%= render "leave_hist" %>
-
-<%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
-<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary"} %>
-<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"btn btn-primary"} %>
-<% if @user.is_tl %>
+<% if @user.is_tl and !@user_session.is_admin%>
 	<%= link_to 'Back',  tl_index_path , {class:"btn btn-primary"} %>
+<%elsif @user_session.is_admin and !@user.is_tl %>
+	<%= link_to 'Back',  users_path, {class:"btn btn-primary"} %>
+<%else%>
+	<%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
+	<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary"} %>
+	<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"btn btn-primary"} %>
 <%end%>
 
 

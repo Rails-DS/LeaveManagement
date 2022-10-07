@@ -3,7 +3,7 @@
 
 <%= render "tl_leave_request" %>
 
-
-<%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
-
+<% if !@user.is_tl %>
+	<%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
+<%end%>
 

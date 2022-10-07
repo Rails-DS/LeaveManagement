@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get :status_rejected
       get :status_rejected_tl
       get :user_profile
+      get :filter
 
     end
   end
