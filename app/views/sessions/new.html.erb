@@ -1,30 +1,108 @@
 
+<div class="container-2 container">
+  <div class="row-2">
+     <h1> Login</h1>
+        </div><br /><br />  
+          <%= form_tag sessions_path do %>
+            <div class="group-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                     <div class="field">
+                      <%= label_tag :email %><br />
+                      <%= text_field_tag :email, params[:email], {class:"form-control"} %>
+                    </div>
+                </div>
+            </div><br/>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                   <div class="field ">
+                      <%= label_tag :password %><br />
+                      <%= password_field_tag :password %>
+                    </div>
+                </div>
+            </div><br/>
+          </div>
+            <div class=" btn btn-success test"><%= submit_tag "Log In", {class:"button"} %></div>
 
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <div class="panel panel-default">
-            <div class="container border border-primary">
-              <h1>Log In</h1>
       
-      <%= form_tag sessions_path do %>
-        <div class="field">
-          <%= label_tag :email %><br />
-          <%= text_field_tag :email, params[:email] %>
-        </div>
-        <div class="field">
-          <%= label_tag :password %><br />
-          <%= password_field_tag :password %>
-        </div>
-        <div class="actions"><%= submit_tag "Log In" %></div>
-        <%#= link_to 'Sign Up', new_user_path, {class: "btn btn-lg btn-light"}%>
-      <% end %>
-      </div>
-      </div>
+                  <%end%>
+ 
   </div>
-</div>
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
