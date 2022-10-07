@@ -2,3 +2,9 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+
+
+$('#test').click(function (event){
+	alert("done............");
+	event.stop();
+})

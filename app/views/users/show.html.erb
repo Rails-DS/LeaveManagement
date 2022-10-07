@@ -11,7 +11,7 @@
 
 
 
-<%= link_to "Button", user_path(@user.id) , :remote => true %>
+<%= link_to "Button", user_path(@user.id) , {:remote => true, :id => "test"} %>
 
 <%= render "leave_hist" %>
 
