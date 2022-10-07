@@ -26,11 +26,8 @@
 }
 
 
-
 /* the props */
 @import "https://unpkg.com/open-props";
-
-
 
 span{
     font-family: var(--font-sans);

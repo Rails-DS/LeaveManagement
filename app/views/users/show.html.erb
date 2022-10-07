@@ -17,14 +17,18 @@
 <%= render "leave_hist" %>
 
 <div class="anchor-tag">
+
+		<% if !@user.is_tl %>
+			<%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
+		<%end%>
+			<%#= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
+			<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary"} %>
+			<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"btn btn-primary"} %>
+		
 		<% if @user.is_tl && !@user_session.is_admin%>
 			<%= link_to 'Back',  tl_index_path , {class:"btn btn-primary"} %>
 		<%elsif @user_session.is_admin && !@user.is_tl %>
 			<%= link_to 'Back',  users_path, {class:"btn btn-primary"} %>
-		<%else%>
-			<%= link_to 'logout', logout_path, {class:"btn btn-danger"}%>
-			<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"btn btn-primary"} %>
-			<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"btn btn-primary"} %>
 		<%end%>
 </div>
 
