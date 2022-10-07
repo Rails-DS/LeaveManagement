@@ -3,4 +3,12 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 
+
 import 'https://unpkg.com/open-props';
+
+
+$('#test').click(function (event){
+	alert("done............");
+	event.stop();
+})
+

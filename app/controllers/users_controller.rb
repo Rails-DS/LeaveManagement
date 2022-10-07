@@ -65,22 +65,37 @@ class UsersController < ApplicationController
     	end
   	end  
 
-  	def show 
+  	def show
+  		@user_session = User.find(session[:user_id]) 
+  		@leave_type = params[:leave_type]
+  		@user = User.find(params[:id])
+  		if (@leave_type =='rejected')
+	        @conditions = "hrStatus = 2 and user_id=#{@user.id}"
+      	elsif (@leave_type == 'approved')
+	        @conditions = "hrStatus = 1 and tlStatus = 1 and user_id=#{@user.id}"
+    	elsif(@leave_type == 'pending')
+	        @conditions = "hrStatus = 0 and user_id=#{@user.id}"
+	    else
+	    	@conditions = "user_id=#{@user.id}"
+    	end
+
   		@leave = Leave.all
   		@available_leave = 24
-  		@user = User.find(params[:id])
-  		@leavehist = LeaveHist.where(user_id: @user.id)
-  		@total_approved_leave = @leavehist.hr_status_approved.count 
-  		@total_rejected_leave = @leavehist.hr_status_rejected.count 
-  		@total_pending_leave = @leavehist.hr_status_pending.count 
-  		
+  		if params[:leave_type].present?
+  			@leavehist = LeaveHist.where(@conditions)
+  		else 
+  			@leavehist = LeaveHist.where(user_id: @user.id)
+  		end
+  		@total_approved_leave = @leavehist.hr_status_approved
+  		@total_rejected_leave = @leavehist.hr_status_rejected
+  		@total_pending_leave = @leavehist.hr_status_pending 
+
+		respond_to do |format|
+		   format.html
+		   format.js
+		end
   	end
 
-  	# def leave_hist
-  	# 	respond_to do |format|               
-   #  		format.js { render 'leave_hist.js', content_type: 'text/javascript'}
- 		# end 
-  	# end
 
 	def destroy
   		@user = User.find(params[:id])
