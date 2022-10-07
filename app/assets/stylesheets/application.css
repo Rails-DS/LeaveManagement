@@ -37,7 +37,8 @@ span{
     border-style: solid;
     border-radius: var(--radius-conditional-3);
     box-shadow: var(--shadow-3);
-    padding: var(--size-fluid-3);
+    padding-inline: var(--size-fluid-3);
+    padding-block: var(--size-fluid-2);
     border-color: #93cdff;
     border-width: thin;
 }
