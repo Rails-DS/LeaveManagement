@@ -4,13 +4,13 @@
   <a class="navbar-brand" href="#"> <h3 class="h3-title">Dayspring</h3></a>
 	 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     	<ul class="navbar-nav for-float ">
-	     	<li class="nav-item active btn btn-primary">
+	     	<li class="nav-item">
 	     		<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"anchor-item"} %>
 	     	</li>
-	      	<li class="nav-item active btn btn-primary ">
+	      	<li class="nav-item">
 	        	<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"anchor-item"} %>
 	      	</li>
-	     	<li class="btn btn-danger">
+	     	<li class="nav-item">
 	     		<% if !@user.is_tl %>
 					<%= link_to 'logout', logout_path, {class:"anchor-item"}%>
 				<%end%>

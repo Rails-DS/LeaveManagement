@@ -125,18 +125,31 @@ ul{
 .navbar-nav{
     float: right;
 
-    margin-right: 55px;
+    margin-right: 40px;
 
 }
 li{
-    margin-right: 41px;
+    margin-right: 30px;
     text-color: white;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
+
 .anchor-item{
-    color: white;
+
+    font-size: 1.3em;
+    padding-inline: .5em;
+    text-decoration: none;
+
 }
+
+.anchor-item:hover{
+     background-color: var(--blue-4);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
 .anchor-item-2{
     padding-inline: 2px;
     padding-block: 1px;
@@ -144,4 +157,8 @@ li{
 
 .h3-title{
     margin-top: -2px;
+}
+
+.logout{
+    background-color: red;
 }
