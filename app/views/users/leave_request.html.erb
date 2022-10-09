@@ -1,4 +1,19 @@
-<h2>Leave Request </h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"> <h3 class="h3-title">Dayspring</h3></a>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav for-float ">
+        <li class="nav-item">
+          <%= link_to "Dashboard", users_path, {class:"anchor-item"} %>
+        </li>      
+        <li class="nav-item">
+          
+          <%= link_to 'Logout', logout_path, {class:"anchor-item anchor-item-logout"}%>
+        
+        </li>
+      </ul>
+    </div>
+</nav>  
+<h2 style="margin-inline:50px;margin-block:40px">Leave Request </h2>
 
 <%= render "leave_request" %>
 

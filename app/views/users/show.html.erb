@@ -5,14 +5,14 @@
 	 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     	<ul class="navbar-nav for-float ">
 	     	<li class="nav-item">
-	     		<%= link_to 'new_leave', leave_new_path(user_id: @user.id), {class:"anchor-item"} %>
+	     		<%= link_to 'New_leave', leave_new_path(user_id: @user.id), {class:"anchor-item"} %>
 	     	</li>
 	      	<li class="nav-item">
 	        	<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"anchor-item"} %>
 	      	</li>
 	     	<li class="nav-item">
 	     		<% if !@user.is_tl %>
-					<%= link_to 'logout', logout_path, {class:"anchor-item"}%>
+					<%= link_to 'Logout', logout_path, {class:"anchor-item anchor-item-logout"}%>
 				<%end%>
 	     	</li>
     	</ul>

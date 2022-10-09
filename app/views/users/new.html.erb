@@ -1,3 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"> <h3 class="h3-title">Dayspring</h3></a>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav for-float ">
+        <li class="nav-item">
+          <%= link_to "Dashboard", users_path, {class:"anchor-item"} %>
+        </li>      
+        <li class="nav-item">
+          
+          <%= link_to 'Logout', logout_path, {class:"anchor-item anchor-item-logout"}%>
+        
+        </li>
+      </ul>
+    </div>
+</nav>  
 
 <div class="container">
 <h1>Add New User</h1>
@@ -59,10 +74,10 @@
 
 <% end %>
 
-
+<!-- 
 <div class="form-group col-md-5">
-<%= link_to "Back to home", users_path, {class: "btn btn-primary"} %>
-</div>
+</div> -->
+<%#= link_to "Back to home", users_path, {class: "btn btn-primary"} %>
 
 
 

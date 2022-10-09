@@ -19,8 +19,8 @@
 			<td><%= u_leavehist.user.name%></td>
 			<td><%= u_leavehist.leaveType%></td>
 			<td><%= u_leavehist.leaveReason%></td>
-			<td><%= u_leavehist.startDate.strftime("%d-%m-%Y")%></td>
-			<td><%= u_leavehist.endDate.strftime("%d-%m-%Y")%></td>
+			<td><%= u_leavehist.startDate ? u_leavehist.startDate.strftime("%d-%m-%Y") : u_leavehist.startDate%></td>
+			<td><%= u_leavehist.endDate ? u_leavehist.endDate.strftime("%d-%m-%Y") : u_leavehist.endDate%></td>
 			<td><%= u_leavehist.hrStatus%></td>
 			<td>
 				<%= link_to "Approve" , toggle_status_tl_user_path(u_leavehist.id),{class:"btn btn-success"} %>

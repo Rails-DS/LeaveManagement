@@ -62,7 +62,7 @@ i{
 }
 
 button{
-    background-color: var(--red-4);
+    background-color: var(--red-5);
     border: none;
     border-radius: 5px;
     color: var(--red-1);
@@ -74,6 +74,7 @@ button{
         text-align:center;
         height:378px;
         width:400px;
+        margin-top: 150px;
     }
     /*body{
         padding:70px;
@@ -138,13 +139,13 @@ li{
 .anchor-item{
 
     font-size: 1.3em;
-    padding-inline: .5em;
+    padding-inline: .7em;
     text-decoration: none;
 
 }
 
 .anchor-item:hover{
-     background-color: var(--blue-4);
+    background-color: var(--blue-4);
     color: white;
     border-radius: 10px;
     text-decoration: none;
@@ -159,6 +160,6 @@ li{
     margin-top: -2px;
 }
 
-.logout{
-    background-color: red;
+.anchor-item-logout:hover{
+    background-color: var(--red-6);
 }

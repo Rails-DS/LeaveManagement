@@ -13,14 +13,14 @@
 	      	</li>
 	     	<li class="nav-item">
 	     		<% if !@user.is_tl %>
-					<%= link_to 'Logout', logout_path, {class:"anchor-item"}%>
+					<%= link_to 'Logout', logout_path, {class:"anchor-item anchor-item-logout"}%>
 				<%end%>
 	     	</li>
     	</ul>
     </div>
 </nav>	
 
-<h4>USER : <strong> <%= @user.email %> </strong></h4>
+<h4 style="margin-left: 73px;margin-top: 46px";>USER : <strong> <%= @user.email %> </strong></h4>
 
 
 <div class="container my-auto ">
