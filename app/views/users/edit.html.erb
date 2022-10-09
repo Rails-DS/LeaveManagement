@@ -20,50 +20,53 @@
 
 <%= form_for @user do |f| %>
  
-
- <div >
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<div class="from-row">
+      <div class="form-group col-md-5">
+          <%= f.label :name %>
+          <%= f.text_field :name ,{class: "form-control"}%>
+      </div>
+      <div  class="form-group col-md-5">
+          <%= f.label :email %>
+          <%= f.text_field :email,{class: "form-control"} %>
+      </div>
+  </div>
+  
+  <div class="form-row">
+      <div class="form-group col-md-5">
+          <%= f.label :password %>
+          <%= f.password_field :password ,{class: "form-control"}%>
+      </div>
+      <div class="form-group col-md-5">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation ,{class: "form-control"}%>
+      </div>
   </div>
 
-  <div >
-    <%= f.label :joiningDate %><br />
-    <%= f.date_field :joiningDate %>
+  <div class="form-row">
+      <div class="form-group col-md-5">
+          <%= f.label :team %>
+          <%= f.collection_select(:team_id, Team.all, :id, :teamName, { :prompt => 'Team', class: "form-control"}) %>
+      </div>
+      <div class="form-group col-md-5">
+          <%= f.label :role %>
+          <%= f.collection_select(:role_id, Role.all, :id, :roleName, { :prompt => 'Role', class: "form-control"}) %>
+      </div>
   </div>
-  
-  
-  <div >
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  
-  <div >
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  
-  <div >
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  
-  <div >
-    <%= f.label :team %>
-    <%= f.collection_select(:team_id, Team.all, :id, :teamName, { :prompt => 'Team'}) %>
-  </div>
-  
-  <div >
-      <%= f.label :role %>
-      <%= f.collection_select(:role_id, Role.all, :id, :roleName, { :prompt => 'Role'}) %>
-  </div>
-  
-  <div >
-      <%= f.submit "Update" %>
 
+    
+    <div class="form-row">
+        <div class=" form-group col-md-5 ">
+            <%= f.label :joiningDate %>
+            <%= f.date_field :joiningDate %>
+        </div>
+      
+    </div>
+    
+    <div class="from-row user-row">
+      <div class="form-group col-md-5">
+          <%= f.submit "Update Employee", {class:"btn btn-primary"} %>
+      </div>
+    </div>
 </div>
-<% end %>  
-  
-</div>
 
-<%#= link_to 'back', users_path(params[:id]), {class:"btn btn-primary m-2"} %>
-
+<% end %>
