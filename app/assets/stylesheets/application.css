@@ -88,7 +88,7 @@ button{
         margin-left: -14px;
         height:90px;
         width:396px;
-        background-color:paleturquoise; 
+        background-color:var(--gray-2); 
     }
 .button{
     padding-inline: 47px;
@@ -162,4 +162,18 @@ li{
 
 .anchor-item-logout:hover{
     background-color: var(--red-6);
+}
+
+#password{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
