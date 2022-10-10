@@ -4,11 +4,42 @@ import "controllers"
 
 
 
-import 'https://unpkg.com/open-props';
 
 
-$('#test').click(function (event){
-	alert("done............");
-	event.stop();
-})
+
+
+
+
+
+ // jQuery(function() {
+   
+ //   var roles = $('#user_role_id').html();
+ //   return $('#user_team_id').change(function() {
+   
+	//    var team = $('#user_team_id :selected').text();
+	//    var options = $(roles).filter("optgroup[label='" + team + "']").html();
+	//      if (options) {
+	//        return $('#user_role_id').html(options);
+	//      } else {
+	//        return $('#user_role_id').empty();
+	//      }
+	//   });
+	// });
+
+
+ jQuery(function() {
+   
+   var roles = $('#user_role_id').html();
+   return $('#user_team_id').change(filter_by_team);
+
+   	function filter_by_team() {
+   	   var team = $('#user_team_id :selected').text();
+	   var options = $(roles).filter("optgroup[label='" + team + "']").html();
+	     if (options) {
+	       return $('#user_role_id').html(options);
+	     } else {
+	       return $('#user_role_id').empty();
+	     }
+	  }
+	});
 
