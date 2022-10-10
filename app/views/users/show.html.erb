@@ -5,7 +5,9 @@
 	 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     	<ul class="navbar-nav for-float ">
 	     	<li class="nav-item">
-	     		<%= link_to 'New_leave', leave_new_path(user_id: @user.id), {class:"anchor-item"} %>
+	     		<% unless User.find(@user_session.id).is_admin? %>
+	     			<%= link_to 'New_leave', leave_new_path(user_id: @user.id), {class:"anchor-item"} %>
+	     		<%end%>
 	     	</li>
 	      	<li class="nav-item">
 	        	<%= link_to 'Profile', user_profile_user_path( @user.id), {class:"anchor-item"} %>
