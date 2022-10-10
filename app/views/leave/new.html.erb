@@ -69,3 +69,17 @@
 
 
 
+<script>
+	// Auto update total no of days
+	function total_days(){
+	var start_date = document.getElementById("leave_hist_startDate").value;
+	var end_date = document.getElementById("leave_hist_endDate").value;
+	document.getElementById("leave_hist_noofDays").value = Math.floor((Date.parse(end_date) - Date.parse(start_date)) / 86400000);
+}	
+
+var end = document.getElementById("leave_hist_endDate")
+
+	end.addEventListener('change', (event) => {
+  	 total_days()
+	});
+</script>
