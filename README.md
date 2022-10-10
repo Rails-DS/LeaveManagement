@@ -1,24 +1,15 @@
-# README
+# Simple Leave Management Application 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built for a small organization where it is used to track the employee leaves and know about the profile 
 
-Things you may want to cover:
+* Table list [ User, Leave, Leave_hists, Teams, roles ] 
 
-* Ruby version
+* Has an admin page, employee page [ Leave hist , profile, new Leave ]
 
-* System dependencies
+* Has Admin and a super admin alias Team-Lead
 
-* Configuration
+* Super Admin has all priveleges where he can do CRUD operations for the employee 
 
-* Database creation
+* While admin ( Team-Lead ) has acces to his team member and can accept or reject his leave 
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
