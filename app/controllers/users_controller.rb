@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 
 	def new 
 		@user = User.new
+		# @team = Team.all
+		# @role = Role.where(team_id: params[@team.id])
 	end
 
 	def create
