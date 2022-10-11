@@ -88,6 +88,7 @@ class UsersController < ApplicationController
   		else 
   			@leavehist = LeaveHist.where(user_id: @user.id)
   		end
+  		@all_leave_hist = LeaveHist.where(user_id:@user.id)
   		@total_approved_leave = @leavehist.hr_status_approved
   		@total_rejected_leave = @leavehist.hr_status_rejected
   		@total_pending_leave = @leavehist.hr_status_pending 

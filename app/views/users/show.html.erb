@@ -29,8 +29,8 @@
 <div class="outer">
 <div class="container" style = "display: flex;justify-content: space-around;">
 	<span>Alloted  Leave : <%= @available_leave %></span>     
-	<span>Available Leave : <%= @available_leave - @leavehist.count %></span>    
-	<span>Applied Leave : <%= @leavehist.count %>  </span> 
+	<span>Available Leave : <%= @available_leave - @all_leave_hist.count %></span>    
+	<span>Applied Leave : <%= @all_leave_hist.count %>  </span> 
 	<span><%= link_to "Approved Leaves ", user_path(leave_type: :approved) %></span>  
 	<span><%= link_to "Rejected Leaves ", user_path(leave_type: :rejected) %></span>  
 	<span><%= link_to "Pending Leaves ", user_path(leave_type: :pending) %></span> 
