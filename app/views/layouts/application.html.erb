@@ -14,6 +14,23 @@
   </head>
 
   <body>
+    <div class="alert-box">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </div>
       <%= yield %>
   </body>
+
+<script>
+  $(function() {
+  $('.alert').slideUp(1200);
+});
+
+</script>
+
+
 </html>
