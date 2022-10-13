@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 	
-	# before_action :is_admin?
-
+	before_action :set_user, only: [ :edit, :update, :show, :destroy]
+	before_action :set_session_user, only: [ :index, :tl_index, :tl_leave_request ]
+	
 	def index
-		@user = User.find(session[:user_id])
 		@users = User.all
 	   	@leavehist = LeaveHist.where(user_id: session[:id])
 	   	@leavehistcount = LeaveHist.where(hrStatus: 0).count
@@ -11,8 +11,6 @@ class UsersController < ApplicationController
 
 	def new 
 		@user = User.new
-		# @team = Team.all
-		# @role = Role.where(team_id: params[@team.id])
 	end
 
 	def create
@@ -29,7 +27,6 @@ class UsersController < ApplicationController
 	end
 
 	def tl_index
-		@user = User.find(session[:user_id])
 		@user_all = User.where(team_id: @user.team_id)
 		@leavehist = LeaveHist.where(tlStatus: 0)
 		@total_leavereq_count = 0
@@ -52,7 +49,6 @@ class UsersController < ApplicationController
 	end
 
 	def tl_leave_request
-		@user = User.find(session[:user_id])
 		#show all the pending request for all user where tl status is in pending
 		@leavehist = LeaveHist.where(tlStatus: 0)
 		@user_all = User.where(team_id: @user.team_id)
@@ -63,11 +59,9 @@ class UsersController < ApplicationController
 	end
 	
 	def edit
-  		@user = User.find(params[:id])
   	end
 
   	def update
-  		@user = User.find(params[:id])
     	if @user.update!(user_params)
       		redirect_to users_path
     	end
@@ -76,8 +70,7 @@ class UsersController < ApplicationController
   	def show
   		@user_session = User.find(session[:user_id]) 
   		@leave_type = params[:leave_type]
-  		@user = User.find(params[:id])
-  		if (@leave_type =='rejected')
+		if (@leave_type =='rejected')
 	        @conditions = "hrStatus = 2 and user_id=#{@user.id}"
       	elsif (@leave_type == 'approved')
 	        @conditions = "hrStatus = 1 and tlStatus = 1 and user_id=#{@user.id}"
@@ -106,18 +99,14 @@ class UsersController < ApplicationController
 		end
   	end
 
-
 	def destroy
-  		@user = User.find(params[:id])
     	if @user.destroy!
       	redirect_to users_path
     	end
 
   	end
 
-
 # TL Status approval
-
 	 def toggle_status_tl
 	  	@leavehist = LeaveHist.where(id: params[:id]).first
 		if @leavehist.tl_status_pending?
@@ -134,10 +123,7 @@ class UsersController < ApplicationController
     	redirect_to tl_leave_request_url
  	end
 
-	
 # HR Status approval
-
-
 	def toggle_status
 		@leavehist = LeaveHist.where(id: params[:id]).first
 		if @leavehist.hr_status_pending?
@@ -160,5 +146,12 @@ class UsersController < ApplicationController
     	params.require(:user).permit(:name, :email, :password, :password_confirmation, :joiningDate, :is_admin, :team_id, :role_id, :is_tl)
   	end
 
+  	def set_user
+  		@user = User.find(params[:id])
+  	end
+
+  	def set_session_user
+  		@user = User.find(session[:user_id])
+  	end
 
 end
