@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 		@user = User.find(session[:user_id])
 		@users = User.all
 	   	@leavehist = LeaveHist.where(user_id: session[:id])
+	   	@leavehistcount = LeaveHist.where(hrStatus: 0).count
 	end
 
 	def new 
@@ -25,14 +26,19 @@ class UsersController < ApplicationController
 
 	def leave_request
 		@leavehist = LeaveHist.where(hrStatus: 0)
-
-
-
 	end
 
 	def tl_index
 		@user = User.find(session[:user_id])
 		@user_all = User.where(team_id: @user.team_id)
+		@leavehist = LeaveHist.where(tlStatus: 0)
+		@total_leavereq_count = 0
+		@user_all.each do |user|
+			unless user.is_tl?
+				@total_leavereq_count += user.leaveHists.where(tlStatus:0).count
+			end 
+		end
+
 		@team_name = ""
 		if @user.team_id == 1
 			@team_name = "Development"
@@ -81,13 +87,14 @@ class UsersController < ApplicationController
 	    	@conditions = "user_id=#{@user.id}"
     	end
 
-  		@leave = Leave.all
-  		@available_leave = 24
   		if params[:leave_type].present?
   			@leavehist = LeaveHist.where(@conditions)
   		else 
   			@leavehist = LeaveHist.where(user_id: @user.id)
   		end
+
+  		@leave = Leave.all
+  		@available_leave = 24
   		@all_leave_hist = LeaveHist.where(user_id:@user.id)
   		@total_approved_leave = @leavehist.hr_status_approved
   		@total_rejected_leave = @leavehist.hr_status_rejected

@@ -5,6 +5,9 @@
     	<ul class="navbar-nav for-float ">
 	     	<li class="nav-item">
 	     		<%= link_to "Approve/Reject Leave", tl_leave_request_path, {class:"anchor-item"} %>
+	     		<% if @total_leavereq_count != 0  %>
+		     		<b class="count"><%= @total_leavereq_count%></b>
+		     	<%end%>
 	     	</li>
 	     	<li class="nav-item">
 	     		<%= link_to 'My Leave', user_path(session[:user_id]),  {class:"anchor-item"} %>

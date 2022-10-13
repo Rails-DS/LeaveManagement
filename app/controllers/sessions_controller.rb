@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         if user.is_admin == true 
-          redirect_to users_path, notice: "Logged in"
+          redirect_to users_path, notice: "Log in sucessful"
         elsif user.is_admin == false && user.is_tl == true
-          redirect_to tl_index_path, notice: "Logged in"  
+          redirect_to tl_index_path, notice: "Log in successful"  
         else
-          redirect_to user_path(session[:user_id]), notice: "Logged in"
+          redirect_to user_path(session[:user_id]), notice: "Log in successful"
         end
     else
       redirect_to new_session_path, alert: "Invalid Username or password"

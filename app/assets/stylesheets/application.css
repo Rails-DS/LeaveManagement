@@ -178,37 +178,19 @@ li{
 }
 
 
+b{
 
+    background-color: red;
+    border-radius: 20px;
+    background-size: contain;
+    color: white;
+    position: relative;
+    top: -12px;
+    right: 15px;
+    padding-inline: 4px;
+    padding-block: 1.5px;
 
-/*notice and alert*/
-
-/*.alert {
-  top: 0px;
-  padding: 20px;
-  font-size: 16px;
-  color: #ffffff;
-  background-color: #58a6eb;
-  animation: alert-box 1s ease;
-  margin-inline:525px;
-  text-align: center;
 }
-@keyframes alert-box {
-  0% {
-   top: -10%;
-  }
-  100% {
-    top: 0%;
-  }
-}
-
-
-.alert-box{
-    width: 100%;
-    display: flex;
-    justify-content:  center;
-    position: fixed;
-    margin-top: 15px;
-}*/
 
 .alert{
     height: 4em;
