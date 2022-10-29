@@ -75,7 +75,7 @@ class UsersController < ApplicationController
       	elsif (@leave_type == 'approved')
 	        @conditions = "hrStatus = 1 and tlStatus = 1 and user_id=#{@user.id}"
     	elsif(@leave_type == 'pending')
-	        @conditions = "hrStatus = 0 and user_id=#{@user.id}"
+	        @conditions = "hrStatus = 0 or tlStatus = 0 and user_id=#{@user.id}"
 	    else
 	    	@conditions = "user_id=#{@user.id}"
     	end
@@ -139,6 +139,7 @@ class UsersController < ApplicationController
 		end
 	    	redirect_to leave_request_url, notice: 'Leave status has been updated.'
 	end
+
 
   	private
 

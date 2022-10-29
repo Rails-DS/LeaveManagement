@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
 
   # before_action :is_admin?
+
+
   def new
+
   end
 
   def create
@@ -26,6 +29,7 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to new_session_path, alert: "Logged out!"
   end
+
 
 
   private
