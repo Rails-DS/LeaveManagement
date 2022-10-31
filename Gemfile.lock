@@ -223,6 +223,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  mail (~> 2.7)
   puma (~> 5.0)
   rails (~> 7.0.4)
   selenium-webdriver

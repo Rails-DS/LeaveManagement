@@ -13,8 +13,10 @@ class LeaveController < ApplicationController
     @user = User.find(params[:user_id])
     @leave = LeaveHist.new(leave_params)
     @leave.user_id = params[:user_id]
-
+    @admin = 'shibushaw1699@gmail.com'
     if @leave.save!
+      # UserMailer.email_notification().deliver_later
+
       redirect_to user_path(@user.id)
     else
       redirect_to leave_new_path
